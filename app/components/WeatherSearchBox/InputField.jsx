@@ -43,12 +43,15 @@ const InputField = () => {
       </div>
 
       {weatherData ? (
-        <Popover
-          setClickedCity={setClickedCity}
-          clickedCity={clickedCity}
-          setLoading={setLoading}
-          city={weatherData?.location?.name}
-        />
+       
+          <Popover
+            setClickedCity={setClickedCity}
+            clickedCity={clickedCity}
+            setLoading={setLoading}
+            city={weatherData?.location?.name}
+            cityFilter={cityName}
+          />
+      
       ) : (
         ""
       )}

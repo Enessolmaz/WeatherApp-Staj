@@ -1,37 +1,111 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { citiesData } from "./cityDATA";
 
-const Popover = ({ city, setClickedCity, clickedCity, setLoading }) => {
-  
-  
-  const getCity = () => {
+const Popover = ({
+  city,
+  setClickedCity,
+  clickedCity,
+  setLoading,
+  cityFilter,
+}) => {
+  const getCity = (clickedPopUpCity) => {
     setLoading(true);
     try {
-      setClickedCity(city);
+      setClickedCity(clickedPopUpCity);
       setLoading(false);
     } catch (error) {}
   };
+
+  const citiesDataFilter = citiesData.filter((sehir) =>
+    sehir.name.toLowerCase().includes(cityFilter.toLowerCase())
+  );
+  const [filtered, setFiltered] = useState([]);
+
+  useEffect(() => {
+    if (citiesDataFilter.length < 5 || city) {
+      const newdata = [...citiesDataFilter, city];
+      if (JSON.stringify(filtered) !== JSON.stringify(newdata)) {
+        setFiltered(newdata);
+      }
+    }
+  }, [city, citiesDataFilter, filtered]);
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       exit={{ opacity: 0, transition: { duration: 5 } }}
       animate={{ opacity: 1 }}
-      className="absolute -bottom-16 w-full "
+      className="absolute -bottom-2 w-full "
     >
-      {clickedCity.length > 0 ? (
+      {clickedCity.length > 2 ? (
         ""
       ) : (
-        <Link
-          onClick={getCity}
-          href={`/${city}`}
-          className="w-full h-14 text-base-100 flex transition-all bg-popover
-          items-center pl-6 rounded-lg"
-        >
-          {city}
-        </Link>
+        <div className="flex flex-col absolute w-full divide gap-[1px]  ">
+          {filtered.map((item, idx) => (
+            <Link
+              key={idx}
+              onClick={(e) => getCity(e.target.innerHTML)}
+              href={`/${item.name || item}`}
+              className={`w-full h-14  text-base-100 flex bg-popover items-center pl-6 hover:bg-base-700  ${
+                filtered?.length === 1
+                  ? "rounded-lg"
+                  : idx === 0
+                  ? "rounded-tl-lg rounded-tr-lg"
+                  : idx === filtered?.length - 1
+                  ? "rounded-bl-lg rounded-br-lg mb-4"
+                  : ""
+              }`}
+            >
+              {item.name || item}
+            </Link>
+          ))}
+        </div>
       )}
+      {/* {citiesDataFilter?.map((item, idx) => (
+            <Link
+              key={idx}
+              onClick={getCity}
+              href={`/${city}`}
+              className="w-full h-14 text-base-100 flex transition-all bg-popover
+            items-center pl-6 rounded-lg"
+            >
+              {item.name}
+            </Link>
+          ))} */}
+      {/* {citiesDataFilter.length < 5
+            ? citiesDataFilter?.map((item, idx) => (
+                <Link
+                  key={idx}
+                  onClick={getCity}
+                  href={`/${item.name}`}
+                  className="w-full h-14 text-base-100 flex transition-all bg-popover
+              items-center pl-6 rounded-lg"
+                >
+                  {item.name}
+                </Link>
+              ))
+            : ""} */}
+
+      {/* {clickedCity.length > 2 ? (
+        <div className="flex flex-col absolute w-full ">
+          {
+            filtered.map((item, idx) => (
+              <Link
+                key={idx}
+                onClick={getCity}
+                href={`/${item.name || item}`}
+                className="w-full h-14 text-base-100 flex transition-all bg-popover
+                  items-center pl-6 rounded-lg"
+              >
+                {item.name || item}
+              </Link>
+            ))}
+        </div>
+      ) : (
+        ""
+      )} */}
     </motion.div>
   );
 };
