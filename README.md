@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center" id="title">React-Staj WeatherApp</h1>
 
-## Getting Started
+<h2>💻 Özellikler </h2>
 
-First, run the development server:
+* Axios Kullanımı: Veri çekme işlemleri için Axios kütüphanesi kullanılmıştır.
+* Frontend Teknolojileri: React ve Next.js kullanılarak geliştirilmiştir.
+* Hata Yönetimi: API sorgularında oluşabilecek hatalar için açıklayıcı bir dosya oluşturulmuştur.
+* Hava Durumu İkonları: Mevcut hava durumunu yansıtan görseller kullanılmıştır.
+* Responsive Tasarım: Uygulama, çeşitli cihaz ve ekran boyutlarında düzgün bir şekilde görüntülenmektedir.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<br/>
+<hr/>
+<br/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h2>💻 Kurulum </h2>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Projeyi klonlayın.
+2. Gerekli bağımlılıkları yüklemek için npm install komutunu çalıştırın.
+3. Projeyi başlatmak için npm run dev komutunu kullanın.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<br/>
+<hr/>
+<br/>
 
-## Learn More
+<h2>💻 Kullanım </h2>
 
-To learn more about Next.js, take a look at the following resources:
+1. Uygulamayı başlattıktan sonra hava durumu bilgilerini görüntüleyebilirsiniz.
+2. Arama yaparak farklı konumların hava durumu bilgilerini alabilirsiniz.
+3. Uygulamayı farklı cihazlarda ve ekran boyutlarında test ederek responsive tasarımı gözlemleyebilirsiniz.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br/>
+<hr/>
+<br/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Screenshot
 
-## Deploy on Vercel
+![Uygulama Ekran Görüntüsü](https://i.imgur.com/e2MViJR.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Uygulama Ekran Görüntüsü](https://i.imgur.com/FZzN3iB.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
