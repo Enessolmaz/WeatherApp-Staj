@@ -3,25 +3,20 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import WeatherCard from "./WeatherCard";
 import { icons } from "./icons/icons";
-import Image from "next/image";
-import Loading from "../../assets/Loading.png";
+import NotFound from "./NotFound";
 
 const City = ({ city }) => {
   const API_KEY = "bef59557a3104e82baf204148242503";
-  const [loading, setLoading] = useState(false);
 
   const [cityData, setCityData] = useState([]);
 
   useEffect(() => {
-    setLoading(true)
     const getCityInApi = async () => {
       try {
         const response = await axios.get(
           `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=5&aqi=no&alerts=no`
         );
-
         setCityData(response.data);
-        setLoading(false)
       } catch (error) {}
     };
     getCityInApi();
@@ -36,8 +31,8 @@ const City = ({ city }) => {
 
   return (
     <div className="w-full flex justify-center items-center mt-24">
-      {loading ? (
-        <Image src={Loading} alt="" width={125}  srcSet="" className="animate-spin z-50" />
+      {cityData.length === 0 ? (
+        <NotFound />
       ) : (
         <WeatherCard cityData={cityData} />
       )}

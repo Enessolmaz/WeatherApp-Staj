@@ -42,13 +42,13 @@ const Popover = ({
       {clickedCity.length > 2 ? (
         ""
       ) : (
-        <div className="flex flex-col absolute w-full divide gap-[1px]  ">
+        <div className="flex flex-col absolute transition-all w-full divide gap-[1px]  ">
           {filtered.map((item, idx) => (
             <Link
               key={idx}
               onClick={(e) => getCity(e.target.innerHTML)}
               href={`/${item.name || item}`}
-              className={`w-full h-14  text-base-100 flex bg-popover items-center pl-6 hover:bg-base-700  ${
+              className={`w-full h-14  text-base-100 transition-all flex bg-popover items-center pl-6 hover:bg-base-700  ${
                 filtered?.length === 1
                   ? "rounded-lg"
                   : idx === 0
@@ -74,38 +74,7 @@ const Popover = ({
               {item.name}
             </Link>
           ))} */}
-      {/* {citiesDataFilter.length < 5
-            ? citiesDataFilter?.map((item, idx) => (
-                <Link
-                  key={idx}
-                  onClick={getCity}
-                  href={`/${item.name}`}
-                  className="w-full h-14 text-base-100 flex transition-all bg-popover
-              items-center pl-6 rounded-lg"
-                >
-                  {item.name}
-                </Link>
-              ))
-            : ""} */}
-
-      {/* {clickedCity.length > 2 ? (
-        <div className="flex flex-col absolute w-full ">
-          {
-            filtered.map((item, idx) => (
-              <Link
-                key={idx}
-                onClick={getCity}
-                href={`/${item.name || item}`}
-                className="w-full h-14 text-base-100 flex transition-all bg-popover
-                  items-center pl-6 rounded-lg"
-              >
-                {item.name || item}
-              </Link>
-            ))}
-        </div>
-      ) : (
-        ""
-      )} */}
+    
     </motion.div>
   );
 };

@@ -17,8 +17,11 @@ import { nightDataIcons } from "./nightAssets/nightData";
 import { dayDataIcons } from "./dayAssets/dayData";
 import WeatherInfo from "./WeatherInfo";
 import CityList from "./CityList";
+import NotFound from "./NotFound";
 
 const WeatherCard = ({ cityData }) => {
+
+
   const dayWeather = [
     {
       name: "Clear",
@@ -164,10 +167,14 @@ const WeatherCard = ({ cityData }) => {
                 </span>
                 <span className=" flex flex-col">
                   <span className="text-lg font-bold">
-                    {Math.floor(cityData?.forecast?.forecastday[0]?.day?.mintemp_c) +
+                    {Math.floor(
+                      cityData?.forecast?.forecastday[0]?.day?.mintemp_c
+                    ) +
                       "ºc" +
                       " / " +
-                      Math.floor(cityData?.forecast?.forecastday[0]?.day?.maxtemp_c) +
+                      Math.floor(
+                        cityData?.forecast?.forecastday[0]?.day?.maxtemp_c
+                      ) +
                       "ºc"}
                   </span>
                   <span className="font-normal text-sm text-base-200">
@@ -197,10 +204,8 @@ const WeatherCard = ({ cityData }) => {
           </div>
         </div>
 
-        <WeatherInfo/>
-       
+        <WeatherInfo />
         <CityList cityData={cityData} />
-        
       </div>
     </div>
   );
