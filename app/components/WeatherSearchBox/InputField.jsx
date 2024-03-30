@@ -9,7 +9,7 @@ const InputField = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [clickedCity, setClickedCity] = useState("");
   const [cityName, setCityName] = useState("");
-  const [loading, setLoading] = useState("false");
+  const [loading, setLoading] = useState(null);
 
   const getWeatherForCity = async (city) => {
     try {
@@ -33,7 +33,7 @@ const InputField = () => {
           onChange={(e) => getWeatherForCity(e.target.value)}
           value={clickedCity ? clickedCity : cityName}
         />
-        {!loading ? (
+        {loading === false ? (
           <span className="absolute right-1  top-0 bottom-0 flex items-center">
             <Image src={Loading} alt="" srcSet="" className="animate-spin " />
           </span>
