@@ -23,6 +23,8 @@ const InputField = () => {
     }
   };
 
+  console.log(loading)
+
   return (
     <div className="flex flex-col transition-all">
       <div className="relative">

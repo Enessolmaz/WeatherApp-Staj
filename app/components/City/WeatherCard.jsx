@@ -17,7 +17,7 @@ import { nightDataIcons } from "./nightAssets/nightData";
 import { dayDataIcons } from "./dayAssets/dayData";
 import WeatherInfo from "./WeatherInfo";
 import CityList from "./CityList";
-import NotFound from "./NotFound";
+
 
 const WeatherCard = ({ cityData }) => {
 

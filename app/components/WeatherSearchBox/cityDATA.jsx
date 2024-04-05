@@ -502,26 +502,3 @@ export const citiesData = [
   { name: "Murom" },
   { name: "Soma" },
 ];
-
-
-
-
-
-// {clickedCity.length > 2 ? (
-//   <div className="flex flex-col absolute w-full ">
-//     {
-//       filtered.map((item, idx) => (
-//         <Link
-//           key={idx}
-//           onClick={getCity}
-//           href={`/${item.name || item}`}
-//           className="w-full h-14 text-base-100 flex transition-all bg-popover
-//             items-center pl-6 rounded-lg"
-//         >
-//           {item.name || item}
-//         </Link>
-//       ))}
-//   </div>
-// ) : (
-//   ""
-// )}
